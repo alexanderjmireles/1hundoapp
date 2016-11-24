@@ -1,0 +1,8 @@
+%h1 Welcome to 1hundo!
+%h1 The rules are simple post a pic of the freshest kicks you can find for under 100 bucks and post the link in the comments
+#posts
+
+  = render 'posts'
+
+#paginator.text-center
+  = link_to_next_page @posts, 'LOAD MORE', remote: true, id: 'load_more'
