@@ -10,8 +10,13 @@
           .container-fluid
             .form-group.text-center
               %h4 Upload an image:
-              = f.attachment_field :image, direct: true, presigned: true, label: false, input_html: { onChange: 'loadFile(event)' }
+              = f.attachment_field :image, direct: true, presigned: true, label: false
             .form-group.text-center
               = f.input :caption, label: false, placeholder: 'Add your caption'
             .form-group.text-center
               = f.button :submit, class: 'btn-success btn-block'
+
+          :javascript
+            $(document).on("upload:start", "form", function(e) {
+              loadFile(e)
+            });

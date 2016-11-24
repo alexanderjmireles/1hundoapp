@@ -11,7 +11,7 @@ module ApplicationHelper
   def form_image_select(post)
 
     if post.image.present?
-      return image_tag attachment_url(post, :image, :full, 640, 400, format: "jpg")
+      return image_tag( attachment_url(post, :image, :fill, 640, 400, format: "jpg"),id: 'image-preview', class: 'img-responsive img-circle profile-image' )
     else
       image_tag 'placeholder.jpg', id: 'image-preview', class: 'img-responsive'
     end
@@ -19,10 +19,11 @@ module ApplicationHelper
 
   def profile_avatar_select(user)
 
-    if user.avatar.exists?
-     return image_tag user_avatar_url(user, :image, :fill, 200,200, format: 'jpg' class: 'img-responsive img-circle profile-image')
+    if user.avatar.present?
+      return image_tag(attachment_url(user, :avatar, :fill, 640, 400, format: "jpg"),id: 'image-preview', class: 'img-responsive img-circle profile-image' )
     else
-        image_tag 'default-avatar.jpg', id: 'image-preview',class: 'img-responsive img-circle profile-image'
-                                    
-      end
+      image_tag 'default-avatar.jpg', id: 'image-preview', class: 'img-responsive img-circle profile-image'
     end
+
+  end
+end

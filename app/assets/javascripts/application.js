@@ -17,3 +17,9 @@
 //= require jquery.turbolinks
 //= require_tree .
 //= require refile
+
+
+
+$(document).on("upload:start", "form", function(e) {
+  loadFile(e)
+});

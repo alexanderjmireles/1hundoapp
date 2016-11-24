@@ -9,8 +9,8 @@
                 %h4 Change your profile image:
                 .img-circle.avatar-image
                   = profile_avatar_select(@user)
-                = f.input :avatar, label: false,
-                                   input_html: { onChange: 'loadFile(event)' }
+                = f.attachment_field :avatar, direct: true, presigned: true, label: false
+
           .row
             .col-md-12
               .form-group.text-center
